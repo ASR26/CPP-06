@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:44:56 by asolano-          #+#    #+#             */
-/*   Updated: 2023/11/14 11:39:58 by asolano-         ###   ########.fr       */
+/*   Updated: 2023/11/16 08:40:58 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ class ScalarConverter
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter &operator=(const ScalarConverter &copy);
+		
 	public:
 		~ScalarConverter();
-		static void	convertChar(std::string);
+		static void	convertChar(char);
 		static void	convertInt(std::string);
 		static void	convertFloat(std::string);
 		static void	convertDouble(std::string);

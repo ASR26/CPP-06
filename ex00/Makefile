@@ -6,12 +6,12 @@
 #    By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 13:24:24 by asolano-          #+#    #+#              #
-#    Updated: 2023/10/20 11:55:39 by asolano-         ###   ########.fr        #
+#    Updated: 2023/11/16 11:35:34 by asolano-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Executable name
-NAME = bureaucrat
+NAME = converter
 
 # Compiler
 CPP = c++
@@ -20,7 +20,7 @@ CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Source files
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp ScalarConverter.cpp
 
 # Object files
 OBJ = $(SRC:.cpp=.o)
