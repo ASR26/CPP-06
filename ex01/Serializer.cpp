@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:51:18 by asolano-          #+#    #+#             */
-/*   Updated: 2023/11/16 11:58:03 by asolano-         ###   ########.fr       */
+/*   Updated: 2023/11/20 08:41:08 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,14 @@ Serializer &Serializer::operator=(const Serializer &copy)
 
 Serializer::~Serializer()
 {
+}
+
+uintptr_t Serializer::serialize(Data *data)
+{
+	return (reinterpret_cast<uintptr_t>(data));
+}
+
+Data *Serializer::deserialize(uintptr_t ptr)
+{
+	return (reinterpret_cast<Data *>(ptr));
 }

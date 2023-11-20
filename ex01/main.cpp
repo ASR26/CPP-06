@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 11:51:34 by asolano-          #+#    #+#             */
-/*   Updated: 2023/11/20 08:45:25 by asolano-         ###   ########.fr       */
+/*   Created: 2023/11/20 08:39:58 by asolano-          #+#    #+#             */
+/*   Updated: 2023/11/20 08:43:23 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#include "Serializer.hpp"
 
-#include <iostream>
-
-struct		Data
+int	main(void)
 {
-	std::string name;
-	double	value;
-};
+	Data	*data;
 
-class Serializer
-{
-	private:
-		Serializer();
-		Serializer(const Serializer &copy);
-		Serializer &operator=(const Serializer &copy);
-	public:
-		~Serializer();
-		static uintptr_t serialize(Data* data);
-		static Data* deserialize(uintptr_t ptr);
+	data = new Data;
+	data->name = "New item";
+	data->value = 100;
 
-};
+	std::cout
+		<< "The item alocated in "
+		<< Serializer::serialize(data)
+		<< " is a "
+		<< Serializer::deserialize(Serializer::serialize(data))->name
+		<< " that costs "
+		<< Serializer::deserialize(Serializer::serialize(data))->value
+		<< "€."
+		<< std::endl;
 
-
-#endif
+	return (0);
+}
