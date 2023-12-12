@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:44:50 by asolano-          #+#    #+#             */
-/*   Updated: 2023/11/16 11:39:36 by asolano-         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:08:53 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void ScalarConverter::convert(std::string input)
 {
 	if (input.size() == 1 && !isdigit(input[0]))
 		return convertChar(input[0]);
-	if (input.find_first_not_of("0123456789") == std::string::npos || (input.find_first_not_of("-0123456789") && input.find_first_of("-") == 0 && input.find_last_of("-") == 0))
+	if (input.find_first_not_of("0123456789") == std::string::npos || (input.find_first_not_of("-0123456789") == std::string::npos && input.find_first_of("-") == 0 && input.find_last_of("-") == 0))
 		return (convertInt(input));
 	if (input == "nan" || input == "+inf" || input == "-inf" || (input.find_first_not_of("0123456789.") == std::string::npos && input.find_first_of(".") != std::string::npos && input.find_first_of(".") == input.find_last_of("."))
 	|| (input.find_first_not_of("0123456789.-") == std::string::npos && input.find_first_of("-") == 0 && input.find_last_of("-") == 0 && input.find_first_of(".") != std::string::npos && input.find_first_of(".") == input.find_last_of(".")))
-		return (convertFloat(input));
+		return (convertDouble(input));
 	if (input == "nanf" || input == "+inff" || input == "-inff" || (input.find_first_not_of("0123456789.f") == std::string::npos && input.find_first_of("f") == input.size() - 1 && input.find_first_of(".") != std::string::npos && input.find_first_of(".") == input.find_last_of("."))
 	|| (input.find_first_not_of("0123456789.-") == std::string::npos && input.find_first_of("f") == input.size() - 1 && input.find_first_of("-") == 0 && input.find_last_of("-") == 0 && input.find_first_of(".") != std::string::npos && input.find_first_of(".") == input.find_last_of(".")))
-		return (convertDouble(input));
+		return (convertFloat(input));
 	std::cout << "Invalid argument" << std::endl;
 }
 
